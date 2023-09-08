@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0; /* Elimina los márgenes en todos los elementos */
+    padding: 0; /* Elimina el relleno en todos los elementos */
+    box-sizing: border-box; /* Define el modelo de caja como "border-box" para evitar que el relleno y el borde afecten el tamaño total */
+    font-family: 'Poppins', sans-serif; /* Establece la fuente predeterminada para todos los elementos en la página */
+}
+
+body {
+    background-color: #fff; /* Establece el color de fondo del cuerpo a blanco */
+    height: 100vh; /* Establece la altura del cuerpo al 100% del viewport (altura visible del navegador) */
+    display: flex; /* Utiliza un sistema de visualización flexible para organizar los elementos hijos */
+    align-items: center; /* Centra verticalmente los elementos hijos dentro del cuerpo */
+    justify-content: center; /* Centra horizontalmente los elementos hijos dentro del cuerpo */
+}
+
+/*Este codigo el fondo segun sea dia o noche*/
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/day.png');
+    background-size: cover;
+    z-index: -1; /* Para que esté detrás del contenido */
+}
+
+
+.container {
+    height: 400px; /* Establece la altura del contenedor a 400 píxeles */
+    background-color: #fff; /* Establece el color de fondo del contenedor */
+    color: #000; /* Establece el color del texto dentro del contenedor a blanco */
+    border-radius: 25px; /* Aplica un radio de borde de 25 píxeles para redondear las esquinas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); /* Agrega una sombra al contenedor */
+}
+
+.left-info {
+    width: 260px; /* Establece el ancho del elemento a 260 píxeles */
+    height: 100%; /* Establece la altura del elemento al 100% de su contenedor */
+    float: left; /* Hace que el elemento flote a la izquierda de su contenedor */
+    display: flex; /* Configura el elemento como un contenedor flexible */
+    border-radius: 25px; /* Aplica un radio de borde de 25 píxeles para redondear las esquinas */
+    justify-content: center; /* Centra el contenido horizontalmente dentro del elemento */
+    background-color: #232931;
+    /*background: url("1.jpg");  Establece una imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo horizontalmente */
+    background-size: cover; /* Escala la imagen de fondo para cubrir todo el elemento */
+    transform: scale(1.03) perspective(200px); /* Aplica una transformación de escala y perspectiva */
+    cursor: pointer; /* Cambia el cursor del mouse cuando se coloca sobre el elemento */
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2); /* Agrega una sombra al elemento */
+    transition: all 0.3s ease; /* Aplica una transición suave a todas las propiedades durante 0.3 segundos */
+}
+
+/* Este código aplica una transformación al elemento .left-info cuando se coloca el cursor encima (hover). */
+.left-info:hover {
+    transform: scale(1.1) perspective(2500px) rotateY(5deg);
+}
+
+/* Este código crea un fondo de gradiente lineal para el elemento con la clase .pic-gradient. */
+.pic-gradient {
+    position: absolute; /* Posición absoluta para cubrir completamente su contenedor */
+    width: 100%; /* Ancho al 100% del contenedor */
+    height: 100%; /* Altura al 100% del contenedor */
+    top: 0; /* Parte superior fijada a 0 para cubrir desde arriba */
+    left: 0; /* Izquierda fijada a 0 para cubrir desde la izquierda */
+    background: linear-gradient(135deg, #edeef1 10%, #4e6d9c 100%); /* Fondo con gradiente lineal */
+    border-radius: 25px; /* Bordes redondeados */
+    opacity: 0.5; /* Opacidad del 50% para un efecto semitransparente */
+}
+
+/* Este código aplica estilos al elemento con la clase .today-info */
+.today-info {
+    position: absolute; /* Posición absoluta para controlar su ubicación */
+    display: flex; /* Usa el modelo de caja flexible */
+    flex-direction: column; /* Apila elementos verticalmente */
+    margin-top: 25px; /* Margen superior de 25 píxeles para separarlo de otros elementos */
+}
+
+/* Estos estilos se aplican al elemento con la clase .today-weather */
+.today-weather {
+    position: absolute; /* Se posiciona de manera absoluta para controlar su ubicación */
+    display: flex; /* Usa el modelo de caja flexible */
+    flex-direction: column; /* Organiza los elementos en una columna vertical */
+    align-items: flex-start; /* Alinea los elementos secundarios hacia la izquierda */
+    bottom: 20px; /* Se coloca 20 píxeles desde la parte inferior del contenedor padre */
+    left: 20px; /* Se coloca 20 píxeles desde la parte izquierda del contenedor padre */
+}
+
+/* Estos estilos se aplican a los elementos con la clase .bx dentro de .today-weather */
+.today-weather .bx {
+    font-size: 4.6rem; /* Establece el tamaño de fuente en 4.6 rem (tamaño de fuente grande) */
+}
+
+/* Estos estilos se aplican a elementos con la clase .weather-temp */
+.weather-temp {
+    font-weight: 700; /* Establece el peso de la fuente en 700 (negrita) */
+    font-size: 3.5rem; /* Establece el tamaño de fuente en 3.5 rem */
+}
+
+/* Estos estilos se aplican a elementos con la clase .right-info */
+.right-info {
+    float: right; /* Hace que el elemento flote a la derecha */
+    position: relative; /* Establece la posición relativa */
+    height: 100%; /* Establece la altura en 100% */
+    padding-top: 25px; /* Agrega relleno en la parte superior de 25 px */
+}
+
+/* Estos estilos se aplican a elementos con la clase .day-info */
+.day-info {
+    padding: 25px 35px; /* Agrega relleno de 25 px en la parte superior e inferior y 35 px a los lados */
+    display: flex; /* Establece la visualización como flexbox */
+    flex-direction: column; /* Establece la dirección de los elementos secundarios en columna */
+}
+
+/* Estos estilos se aplican a elementos secundarios de .day-info que no sean el último elemento secundario */
+.day-info div:not(:last-child) {
+    margin-bottom: 6px; /* Agrega un margen inferior de 6 px a todos los elementos secundarios de .day-info excepto el último */
+}
+
+/* Estos estilos se aplican a elementos con la clase .day-info div .title */
+.day-info div .title {
+    font-weight: 700; /* Establece el peso de la fuente en 700 (negrita) */
+}
+
+/* Estos estilos se aplican a elementos con la clase .day-info div .value */
+.day-info div .value {
+    float: right; /* Hace que los elementos floten hacia la derecha */
+}
+
+/* Estos estilos se aplican a elementos con la clase .days-list */
+.days-list {
+    display: flex; /* Establece la visualización como flexbox */
+    list-style: none; /* Elimina los marcadores de lista */
+    margin: 10px 35px; /* Establece un margen superior de 10 px y márgenes laterales de 35 px */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); /* Agrega sombra */
+    border-radius: 10px; /* Establece un radio de borde de 10 px */
+}
+
+/* Estos estilos se aplican a elementos secundarios de .days-list */
+.days-list li {
+    padding: 15px; /* Agrega relleno de 15 px a los elementos secundarios */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima */
+    display: flex; /* Establece la visualización como flexbox */
+    flex-direction: column; /* Establece la dirección de los elementos secundarios en columna */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos secundarios */
+    align-items: center; /* Alinea los elementos secundarios al centro */
+    border-radius: 10px; /* Establece un radio de borde de 10 px */
+    transition: all 0.3s ease; /* Agrega una transición suave de 0.3 segundos a todos los cambios */
+}
+
+/* Estos estilos se aplican a elementos con la clase .days-list li .bx */
+.days-list li .bx {
+    margin-bottom: 5px; /* Agrega un margen inferior de 5 px */
+    font-size: 2rem; /* Establece el tamaño de fuente en 2 rem */
+}
+
+/* Estos estilos se aplican a elementos secundarios de .days-list li cuando se pasa el mouse por encima */
+.days-list li:hover {
+    transform: scale(1.1); /* Escala el elemento al 110% de su tamaño original */
+    background: #456089; /* Cambia el fondo a gris*/
+    color: #ffffff; /* Cambia el color del texto a un tono blanco */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); /* Agrega una sombra */
+}
+
+/* Estos estilos se aplican a elementos con la clase .day-temp dentro de .days-list li */
+.days-list li .day-temp {
+    margin-top: 6px; /* Agrega un margen superior de 6 px */
+    font-weight: 700; /* Establece el peso de la fuente en 700 (negrita) */
+}
+
+/* Estos estilos se aplican a elementos con la clase .btn-container */
+.btn-container {
+    padding: 25px 35px; /* Agrega relleno de 25 px arriba y abajo, 35 px a la izquierda y derecha */
+}
+
+/* Estos estilos se aplican a elementos con la clase .loc-button */
+.loc-button {
+    outline: none; /* Elimina el contorno al enfocar el botón */
+    width: 100%; /* Establece el ancho al 100% del contenedor */
+    border: none; /* Elimina el borde */
+    font-weight: 700; /* Establece el peso de la fuente en 700 (negrita) */
+    border-radius: 25px; /* Establece un radio de borde de 25 px */
+    padding: 10px; /* Agrega relleno de 10 px */
+    background: #456089; /* Establece un fondo gris */
+    color: #fff; /* Establece el color del texto en blanco */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); /* Agrega una sombra */
+    transition: all 0.3s ease; /* Agrega una transición suave de 0.3 segundos a todos los cambios */
+}
+
+/* Estos estilos se aplican a elementos con la clase .loc-button cuando se pasa el mouse por encima */
+.loc-button:hover {
+    background: #5c69ff; /* Cambia el fondo a un tono más oscuro */
+}
+
+/*Estilo para el FOOTER*/
+.banner {
+    background-color: #333; /* Establece el color de fondo del banner */
+    background-size: cover; /* Hace que la imagen de fondo se ajuste al tamaño del banner */
+    background-position: center center; /* Posiciona la imagen de fondo en el centro horizontal y vertical del banner */
+    height: 120px; /* Establece la altura del banner en 300 píxeles */
+    display: flex; /* Usa el modelo de caja flexible para organizar los elementos internos */
+    flex-direction: column; /* Organiza los elementos internos en una columna */
+    align-items: center; /* Centra los elementos internos horizontalmente */
+    justify-content: center; /* Centra los elementos internos verticalmente */
+    color: #fff; /* Establece el color del texto en blanco */
+    /*PARA QUE SE POSICIONE ABAJO COMO FOOTER:*/
+    width: 100%; /* Establece el ancho del banner al 100% del viewport */
+    position: fixed; /* Fija el banner en la parte inferior de la pantalla */
+    bottom: 0; /* Alinea el banner en la parte inferior de la pantalla */
+    left: 0; /* Alinea el banner a la izquierda de la pantalla */
+
+    /*nuevo*/
+    display: flex;
+    justify-content: space-around; /* Alinea los elementos en el banner a la derecha */
+    align-items: center;
+    padding: 10px 20px; /* Añade espacio interno al banner */
+}
+
+.banner .icon {
+    font-size: 24px; /* Tamaño de fuente de los iconos */
+    color: #fff; /* Color de los iconos */
+    margin-top: 20px; /* Espacio superior de los iconos sociales */
+    margin-right: 1cm; /* 1 cm de separación entre iconos */
+}
+
+.footer-text {
+    font-size: 14px; /* Tamaño de fuente del texto del pie de página */
+    color: #fff; /* Color del texto */
+}
